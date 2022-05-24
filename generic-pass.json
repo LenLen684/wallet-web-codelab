@@ -9,7 +9,7 @@
   "cardTitle": {
     "defaultValue": {
       "language": "en",
-      "value": "Google I/O '22 [DEMO ONLY]"
+      "value": "Card Title test"
     }
   },
   "subheader": {
@@ -21,7 +21,7 @@
   "header": {
     "defaultValue": {
       "language": "en",
-      "value": "Alex McJacobs"
+      "value": "Epi Nephrine"
     }
   },
   "barcode": {

@@ -19,10 +19,14 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const { GoogleAuth } = require('google-auth-library');
 const jwt = require('jsonwebtoken');
+// require stuff ^
 
-const serviceAccountFile = process.env.GOOGLE_APPLICATION_CREDENTIALS || '/path/to/key.json';
-const issuerId = process.env.WALLET_ISSUER_ID || '<issuer ID>';
-const classId = process.env.WALLET_CLASS_ID || 'test-class-id';
+
+const serviceAccountFile = 'C:/Users/shact/AppData/Local/Google/Cloud SDK/key.json';
+const issuerId = '3388000000022122931';
+const classId = '3388000000022122931.9156a416-5cff-416d-8470-a25b7fad3402';
+
+console.log("Account file path", serviceAccountFile)
 
 async function createPassAndToken(req, res) {
   const credentials = require(serviceAccountFile);
@@ -60,11 +64,12 @@ async function createPassAndToken(req, res) {
       genericObjects: [{id: objectPayload.id}],
     },
   };
-
+  
   const token = jwt.sign(claims, credentials.private_key, {algorithm: 'RS256'});
   const saveUrl = `https://pay.google.com/gp/v/save/${token}`;
-  res.send(`<a href="${saveUrl}"><img src="wallet-button.png"></a>`);
+  res.send(`<a href="${saveUrl}"><img src="button.png"></a>`);
 }
+
 
 const app = express();
 
